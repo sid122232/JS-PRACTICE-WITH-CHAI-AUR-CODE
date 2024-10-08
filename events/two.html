@@ -1,0 +1,23 @@
+<!-- //set timeOut -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+ </head>
+ <body>
+    <h1> Welcome to Set timeout prac</h1>
+    <button id="btn">Stop</button>
+    <script>
+ const button = document.querySelector("#btn");
+ const h1 = document.querySelector("h1")
+ const changeText= setTimeout(function(){
+    h1.innerHTML="You are not welcome here"
+ },5000)
+ button.addEventListener("click",function(){
+    clearTimeout(changeText)
+    console.log('You are clicked')
+ })
+    </script>
+ </body>
+ </html>
