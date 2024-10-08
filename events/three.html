@@ -1,0 +1,30 @@
+<!-- //set interval -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+</head>
+<body>
+   <h1> Welcome to Set Interval prac</h1>
+   <button id="start">Start</button>
+   <button id="stop">Stop</button>
+   <script>
+const start = document.querySelector("#start");
+const stop = document.querySelector("#stop");
+const text = "My name is Sid and i am a billionaire"
+const interval = function(){
+    setInterval(function(){
+        console.log(text)
+    },1500)
+}
+const startTexting = start.addEventListener("click",function(){
+ interval()
+})
+const stopTexting = stop.addEventListener("click",function(){
+    clearInterval(interval())
+})
+
+   </script>
+</body>
+</html>
