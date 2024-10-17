@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="circle">
+          
+        </div>
+        <h2>Followers</h2>
+     <button>Click me</button>
+    </div>
+    <script>
+        const button = document.querySelector('button')
+        button.addEventListener('click',ApiRequest)
+        function ApiRequest(){
+        const xhr= new XMLHttpRequest(); // created our XHR which is used to send request to server
+        const requestUrl = 'https://api.github.com/users/hiteshchoudhary' 
+        xhr.open('GET',requestUrl); // created our request with type of request , and function of request
+        
+        xhr.onreadystatechange=function(){   // we create a function that on chaanging the state of request from 0-4 show me every changing sequence
+            const text = JSON.parse(this.responseText)
+            console.log(text)
+           if(xhr.readyState === 4){
+            const followers = text.followers
+            const image = text.avatar_url
+            console.log(image)
+            document.querySelector('.circle').style.backgroundImage = `url(${image})`;
+            document.querySelector('.circle').style.backgroundSize = 'Cover'
+            document.querySelector('h2').innerText=`Followers:${followers}`
+
+
+           }
+        }   
+        xhr.send()
+    }
+        </script>
+</body>
+</html>
